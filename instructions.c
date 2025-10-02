@@ -80,7 +80,7 @@ void powerset(int *arr, int n, int start, int *subset, int size, int target, int
 	{
 		print_subset(subset, size); //DO NOT RETURN
 	}
-	int i = start;/////SEGFAULT if you use start.
+	int i = start;/////SEGFAULT if you use start in recursion.
 	while (i < n)
 	{
 		subset[size] = arr[i];											//pick a number from arr[i], place at the last spot in subset
@@ -88,3 +88,44 @@ void powerset(int *arr, int n, int start, int *subset, int size, int target, int
 		i++;
 	}
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////
+//FILTER
+
+Realloc, define, bufferbox, memmove, in, temp
+
+int main(int ac, char **av)
+{
+	char temp[BUFFER_SIZE];
+	char *ret = NULL;
+	char *buffer;
+
+	ssize_t read_ret;
+	size_t read_total = 0;
+
+	if(ac != 2 || av[1][0] == '\0')
+		return (1);
+
+	while((read_ret = read(0, temp, BUFFER_SIZE)) > 0)
+	{
+		buffer = realloc(ret, read_ret + total_ret + 1);
+		if(!buffer)
+			return (perror("Error", free(ret), 1));
+		ret = buffer;
+		memmove(ret + read_total, temp, read_ret);
+		read_total += read_ret;
+		ret[read_total] = '\0';
+	}
+
+	if(read_ret < 0)
+		return(perror("Error", free(ret), 1));
+	if(!ret)
+		return (free(ret), 1);
+	filter
+	free(ret);
+	return (0);
+}
+///////////////////////////////////////////////////////////////////////////////////
+/// GNL
+
