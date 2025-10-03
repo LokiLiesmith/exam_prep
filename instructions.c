@@ -1,3 +1,11 @@
+///HELPFUL LINKS
+Backtracking:
+https://www.youtube.com/watch?v=Zq4upTEaQyM
+
+N_Queens:
+https://www.youtube.com/watch?v=wGbuCyNpxIg
+
+
 ///////////////////////////////////////////////////////////////////////////////////
 // PERMUTATIONS in n out depth used
 void permutations(char *in, int n, char *out, int depth, char *used)
@@ -122,7 +130,7 @@ int main(int ac, char **av)
 		return(perror("Error", free(ret), 1));
 	if(!ret)
 		return (free(ret), 1);
-	filter
+	filter!
 	free(ret);
 	return (0);
 }
