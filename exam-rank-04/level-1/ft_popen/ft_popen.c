@@ -21,20 +21,19 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-
+/*
+    * PARÁMETROS:
+    * - file: Nombre del ejecutable a lanzar
+    * - argv: Array de argumentos (estilo execvp)
+    * - type: 'r' para leer del comando, 'w' para escribir al comando
+    * 
+    * RETORNO:
+    * - File descriptor conectado al comando
+    * - -1 en caso de error
+    */
 int ft_popen(const char *file, char *const argv[], char type)
 {
-    /*
-     * PARÁMETROS:
-     * - file: Nombre del ejecutable a lanzar
-     * - argv: Array de argumentos (estilo execvp)
-     * - type: 'r' para leer del comando, 'w' para escribir al comando
-     * 
-     * RETORNO:
-     * - File descriptor conectado al comando
-     * - -1 en caso de error
-     */
-    
+
     int fds[2];  // Array para los extremos del pipe
     pid_t pid;
     
