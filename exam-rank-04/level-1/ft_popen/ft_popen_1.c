@@ -1,6 +1,9 @@
+#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <string.h>
+#include <sys/wait.h>
 
 int	ft_popen(const char *file, char *const argv[], char type)
 {
@@ -55,32 +58,14 @@ int	ft_popen(const char *file, char *const argv[], char type)
 	return (-1);
 }
 
-
-
-
-
-
-
-
-
-
 int main()
 {
-    int  fd;
-    char *line;
+    int fd = ft_popen("ls", (char *const[]){"ls", NULL}, 'r');
+	close(fd);
+	fd = ft_popen("ls", (char *const[]){"ls", NULL}, 'w');
 
-    fd = ft_popen("ls", (char *const []){"ls", NULL}, 'r');
-    while ((line = get_next_line(fd)))
-        ft_putstr(line);
-    return (0);
+    char buf[128];
+    read(fd, buf, sizeof(buf));
+
+    close(fd);
 }
-
-
-// int	main() {
-// 	int	fd = ft_popen("ls", (char *const []){"ls", NULL}, 'r');
-// 	dup2(fd, 0);
-// 	fd = ft_popen("grep", (char *const []){"grep", "c", NULL}, 'r');
-// 	char	*line;
-// 	while ((line = get_next_line(fd)))
-// 		printf("%s", line);
-// }

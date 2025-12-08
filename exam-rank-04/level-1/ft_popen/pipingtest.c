@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#include <string.h>
+#include <sys/wait.h>
 
 # define NR_CHILDREN 4
 
