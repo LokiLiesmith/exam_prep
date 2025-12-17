@@ -5,7 +5,7 @@
 #include <string.h>
 #include <sys/wait.h>
 
-# define NR_CHILDREN 4
+//// TEST FROM "man pipe"
 
 int main(int ac, char **av)
 {
